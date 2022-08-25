@@ -1,5 +1,11 @@
+import 'package:dio/dio.dart';
 
+class DioService {
+  Future<dynamic> getMethod({required String url}) async {
+    Dio dio = Dio();
 
-class DioService{
-  
+    return await dio.get(url, options: Options(responseType: ResponseType.json, method: "GET")).then((response) {
+      return response;
+    });
+  }
 }
